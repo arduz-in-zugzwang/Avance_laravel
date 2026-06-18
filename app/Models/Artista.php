@@ -45,10 +45,10 @@ class Artista extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function cancionesArtistas()
-    {
-        return $this->hasMany(\App\Models\CancionesArtista::class, 'id_artista', 'id_artista');
-    }
+    // public function cancionesArtistas()
+    // {
+    //     return $this->hasMany(\App\Models\CancionesArtista::class, 'id_artista', 'id_artista');
+    // }
     
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
