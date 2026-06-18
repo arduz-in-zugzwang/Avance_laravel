@@ -8,13 +8,15 @@ use Illuminate\Database\Eloquent\Model;
  * Class User
  *
  * @property $id
- * @property $email
  * @property $name
  * @property $id_pais
  * @property $id_rol
- * @property $pfp
+ * @property $email
+ * @property $email_verified_at
  * @property $password
+ * @property $pfp
  * @property $bio
+ * @property $remember_token
  * @property $created_at
  * @property $updated_at
  *
@@ -26,13 +28,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property Like[] $likes
  * @property Playlist[] $playlists
  * @property Siguen[] $siguens
- * @property Siguen[] $siguens
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
 class User extends Model
 {
-    
+
     protected $perPage = 20;
 
     /**
@@ -40,7 +41,7 @@ class User extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['email', 'name', 'id_pais', 'id_rol', 'pfp', 'bio'];
+    protected $fillable = ['name', 'id_pais', 'id_rol', 'email', 'pfp', 'bio'];
 
 
     /**
@@ -50,7 +51,7 @@ class User extends Model
     {
         return $this->belongsTo(\App\Models\Paise::class, 'id_pais', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -58,7 +59,7 @@ class User extends Model
     {
         return $this->belongsTo(\App\Models\Role::class, 'id_rol', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -66,7 +67,7 @@ class User extends Model
     {
         return $this->hasMany(\App\Models\Artista::class, 'id', 'id_usuario');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -74,7 +75,7 @@ class User extends Model
     {
         return $this->hasMany(\App\Models\ComentariosArtista::class, 'id', 'id_usuario');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -82,7 +83,7 @@ class User extends Model
     {
         return $this->hasMany(\App\Models\Escuchan::class, 'id', 'id_usuario');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -90,7 +91,7 @@ class User extends Model
     {
         return $this->hasMany(\App\Models\Like::class, 'id', 'id_usuario');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -98,21 +99,21 @@ class User extends Model
     {
         return $this->hasMany(\App\Models\Playlist::class, 'id', 'id_usuario');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function siguens()
+    public function seguidos()
     {
         return $this->hasMany(\App\Models\Siguen::class, 'id', 'id_seguido');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function siguens()
+    public function seguidor()
     {
         return $this->hasMany(\App\Models\Siguen::class, 'id', 'id_seguidor');
     }
-    
+
 }

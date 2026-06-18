@@ -19,11 +19,6 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property Albume $albume
  * @property Artista $artista
- * @property CancionesArtista[] $cancionesArtistas
- * @property CancionTag[] $cancionTags
- * @property Letra $letra
- * @property Like[] $likes
- * @property PlaylistCancione[] $playlistCanciones
  * @property CancionTag[] $cancionTags
  * @property Escuchan[] $escuchans
  * @property Letra[] $letras
@@ -59,46 +54,6 @@ class Cancione extends Model
     public function artista()
     {
         return $this->belongsTo(\App\Models\Artista::class, 'id_artista', 'id');
-    }
-    
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function cancionesArtistas()
-    {
-        return $this->hasMany(\App\Models\CancionesArtista::class, 'id_cancion', 'id_cancion');
-    }
-    
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function cancionTags()
-    {
-        return $this->hasMany(\App\Models\CancionTag::class, 'id_cancion', 'id_cancion');
-    }
-    
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function letra()
-    {
-        return $this->hasOne(\App\Models\Letra::class, 'id_cancion', 'id_cancion');
-    }
-    
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function likes()
-    {
-        return $this->hasMany(\App\Models\Like::class, 'id_cancion', 'id_cancion');
-    }
-    
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function playlistCanciones()
-    {
-        return $this->hasMany(\App\Models\PlaylistCancione::class, 'id_cancion', 'id_cancion');
     }
     
     /**

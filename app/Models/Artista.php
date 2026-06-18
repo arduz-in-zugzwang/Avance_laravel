@@ -14,7 +14,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property $updated_at
  *
  * @property User $user
- * @property CancionesArtista[] $cancionesArtistas
  * @property Albume[] $albumes
  * @property Cancione[] $canciones
  * @property ComentariosArtista[] $comentariosArtistas
@@ -40,14 +39,6 @@ class Artista extends Model
     public function user()
     {
         return $this->belongsTo(\App\Models\User::class, 'id_usuario', 'id');
-    }
-    
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function cancionesArtistas()
-    {
-        return $this->hasMany(\App\Models\CancionesArtista::class, 'id_artista', 'id_artista');
     }
     
     /**

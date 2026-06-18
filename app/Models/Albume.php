@@ -18,7 +18,6 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property Artista $artista
  * @property Cancione[] $canciones
- * @property Cancione[] $canciones
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
@@ -41,14 +40,6 @@ class Albume extends Model
     public function artista()
     {
         return $this->belongsTo(\App\Models\Artista::class, 'id_artista', 'id');
-    }
-    
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function canciones()
-    {
-        return $this->hasMany(\App\Models\Cancione::class, 'id_album', 'id_album');
     }
     
     /**

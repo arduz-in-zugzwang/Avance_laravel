@@ -15,13 +15,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property Ciudade[] $ciudades
  * @property Usuario[] $usuarios
  * @property User[] $users
- * @property Ciudade[] $ciudades
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
 class Paise extends Model
 {
-    
+
     protected $perPage = 20;
 
     /**
@@ -39,7 +38,7 @@ class Paise extends Model
     {
         return $this->hasMany(\App\Models\Ciudade::class, 'id_pais', 'id_pais');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -47,7 +46,7 @@ class Paise extends Model
     {
         return $this->hasMany(\App\Models\Usuario::class, 'id_pais', 'id_pais');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -55,13 +54,6 @@ class Paise extends Model
     {
         return $this->hasMany(\App\Models\User::class, 'id', 'id_pais');
     }
-    
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function ciudades()
-    {
-        return $this->hasMany(\App\Models\Ciudade::class, 'id_pais', 'paises_id_pais');
-    }
-    
+
+
 }

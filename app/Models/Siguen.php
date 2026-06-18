@@ -15,13 +15,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property $updated_at
  *
  * @property User $user
- * @property User $user
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
 class Siguen extends Model
 {
-    
+
     protected $perPage = 20;
 
     /**
@@ -39,13 +38,5 @@ class Siguen extends Model
     {
         return $this->belongsTo(\App\Models\User::class, 'id_seguido', 'id');
     }
-    
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user()
-    {
-        return $this->belongsTo(\App\Models\User::class, 'id_seguidor', 'id');
-    }
-    
+
 }

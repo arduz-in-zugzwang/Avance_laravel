@@ -18,6 +18,7 @@ use App\Http\Controllers\Api\LikeController;
 use App\Http\Controllers\Api\PlaylistCancioneController;
 use App\Http\Controllers\Api\SiguenController;
 
+
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');

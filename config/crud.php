@@ -28,7 +28,7 @@ return [
     |               view-field.stub
     */
 
-    'stub_path' => 'default',
+    'stub_path' => base_path('resources/stubs/crud'),
 
     /*
     |--------------------------------------------------------------------------

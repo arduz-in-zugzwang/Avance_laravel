@@ -17,13 +17,12 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property User $user
  * @property PlaylistCancione[] $playlistCanciones
- * @property PlaylistCancione[] $playlistCanciones
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
 class Playlist extends Model
 {
-    
+
     protected $perPage = 20;
 
     /**
@@ -41,7 +40,7 @@ class Playlist extends Model
     {
         return $this->belongsTo(\App\Models\User::class, 'id_usuario', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -49,13 +48,5 @@ class Playlist extends Model
     {
         return $this->hasMany(\App\Models\PlaylistCancione::class, 'id_playlist', 'id_playlist');
     }
-    
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function playlistCanciones()
-    {
-        return $this->hasMany(\App\Models\PlaylistCancione::class, 'id', 'id_playlist');
-    }
-    
+
 }

@@ -14,13 +14,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property $updated_at
  *
  * @property CancionTag[] $cancionTags
- * @property CancionTag[] $cancionTags
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
 class Tag extends Model
 {
-    
+
     protected $perPage = 20;
 
     /**
@@ -38,13 +37,4 @@ class Tag extends Model
     {
         return $this->hasMany(\App\Models\CancionTag::class, 'id_tag', 'id_tag');
     }
-    
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function cancionTags()
-    {
-        return $this->hasMany(\App\Models\CancionTag::class, 'id', 'id_tag');
-    }
-    
 }
