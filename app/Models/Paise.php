@@ -34,18 +34,18 @@ class Paise extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function ciudades()
-    {
-        return $this->hasMany(\App\Models\Ciudade::class, 'id_pais', 'id_pais');
-    }
+    // public function ciudades()
+    // {
+    //     return $this->hasMany(\App\Models\Ciudade::class, 'id_pais', 'id_pais');
+    // }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function usuarios()
-    {
-        return $this->hasMany(\App\Models\Usuario::class, 'id_pais', 'id_pais');
-    }
+    // public function usuarios()
+    // {
+    //     return $this->hasMany(\App\Models\Usuario::class, 'id_pais', 'id_pais');
+    // }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

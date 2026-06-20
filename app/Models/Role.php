@@ -33,10 +33,10 @@ class Role extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function usuarios()
-    {
-        return $this->hasMany(\App\Models\Usuario::class, 'id_rol', 'id_rol');
-    }
+    // public function usuarios()
+    // {
+    //     return $this->hasMany(\App\Models\Usuario::class, 'id_rol', 'id_rol');
+    // }
     
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

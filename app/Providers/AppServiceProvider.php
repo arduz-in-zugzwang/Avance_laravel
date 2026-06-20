@@ -22,11 +22,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Scramble::configure()
-            ->withDocumentTransformers(function (OpenApi $openApi) {
-                $openApi->secure(
-                    SecurityScheme::http('bearer', 'Authorization header using Bearer token.')
-                );
-            });
+        // Scramble::configure()
+        //     ->withDocumentTransformers(function (OpenApi $openApi) {
+        //         $openApi->secure(
+        //             SecurityScheme::http('bearer', 'Authorization header using Bearer token.')
+        //         );
+        //     });
     }
 }

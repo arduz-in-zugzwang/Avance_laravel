@@ -21,7 +21,7 @@ use App\Http\Controllers\Api\SiguenController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
-})->middleware('auth:sanctum');
+});
 Route::apiResource('artistas', ArtistaController::class);
 Route::apiResource('roles', RoleController::class);
 Route::apiResource('paises', PaiseController::class);
