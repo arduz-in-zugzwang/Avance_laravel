@@ -37,3 +37,5 @@ Route::apiResource('escuchans', EscuchanController::class);
 Route::apiResource('likes', LikeController::class);
 Route::apiResource('playlist-canciones', PlaylistCancioneController::class);
 Route::apiResource('siguens', SiguenController::class);
+
+Route::post('login', [UserController::class, 'login']);
