@@ -23,10 +23,12 @@ class UserRequest extends FormRequest
     {
         return [
 			'name' => 'required|string',
-			'email' => 'required|string',
+			'email' => 'nullable|string',
             'password' => 'required|string',
-			'pfp' => 'string',
-			'bio' => 'string',
+            'id_pais' => 'required|integer',
+            'id_rol' => 'required|integer',
+			'pfp' => 'nullable|string',
+			'bio' => 'nullable|string',
         ];
     }
 }
