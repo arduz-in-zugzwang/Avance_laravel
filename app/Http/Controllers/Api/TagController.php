@@ -53,10 +53,10 @@ class TagController extends Controller
     /**
      * Delete the specified resource.
      */
-    public function destroy(Tag $tag): Response
+    public function destroy(Tag $tag)
     {
         $tag->delete();
-
-        return response()->noContent();
+//responder que se borro
+        return response()->json(['message' => 'Tag borrado Satisfactoriamente'],200);
     }
 }

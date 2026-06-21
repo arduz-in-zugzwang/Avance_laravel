@@ -25,7 +25,7 @@ Route::get('/user', function (Request $request) {
 Route::apiResource('artistas', ArtistaController::class);
 Route::apiResource('roles', RoleController::class);
 Route::apiResource('paises', PaiseController::class);
-Route::apiResource('albunes', AlbumeController::class);
+Route::apiResource('albumes', AlbumeController::class);
 Route::apiResource('canciones', CancioneController::class);
 Route::apiResource('playlists', PlaylistController::class);
 Route::apiResource('tags', TagController::class);
