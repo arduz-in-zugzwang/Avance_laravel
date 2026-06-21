@@ -59,4 +59,22 @@ class UserController extends Controller
 
         return response()->noContent();
     }
+
+    public function login(Request $request): JsonResponse
+{
+    $name = $request->input('name');
+    $password = $request->input('password');
+
+    $user = User::where('name', $name)
+        ->where('password', $password)
+        ->first();
+
+    if (!$user) {
+        return response()->json([
+            'message' => 'Credenciales incorrectas'
+        ], 401);
+    }
+
+    return response()->json(new UserResource($user));
+}
 }
