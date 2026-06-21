@@ -21,6 +21,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Escuchan extends Model
 {
+    protected $table = 'escuchan';
+    
     
     protected $perPage = 20;
 

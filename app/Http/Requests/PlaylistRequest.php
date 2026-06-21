@@ -23,7 +23,8 @@ class PlaylistRequest extends FormRequest
     {
         return [
 			'nombre_playlist' => 'required|string',
-			'id_usuario' => 'required',
+			'id_usuario' => 'required|integer|exists:users,id',
+            'privacidad_playlist' => 'required|boolean',
         ];
     }
 }

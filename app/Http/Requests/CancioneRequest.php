@@ -22,11 +22,11 @@ class CancioneRequest extends FormRequest
     public function rules(): array
     {
         return [
-			'id_album' => 'required',
-			'id_artista' => 'required',
-			'nombre_cancion' => 'required|string',
-			'portada_cancion' => 'string',
-			'path_link' => 'string',
-        ];
+    'id_album' => 'required|integer|exists:albunes,id',
+    'id_artista' => 'required|integer|exists:artistas,id',
+    'nombre_cancion' => 'required|string',
+    'portada_cancion' => 'nullable|string',
+    'path_link' => 'nullable|string',
+];
     }
 }

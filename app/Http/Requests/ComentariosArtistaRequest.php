@@ -22,9 +22,9 @@ class ComentariosArtistaRequest extends FormRequest
     public function rules(): array
     {
         return [
-			'id_artista' => 'required',
-			'id_usuario' => 'required',
-			'texto' => 'required|string',
+            'id_artista' => 'required|integer|exists:artistas,id',
+            'id_usuario' => 'required|integer|exists:users,id',
+            'texto' => 'required|string',
         ];
     }
 }

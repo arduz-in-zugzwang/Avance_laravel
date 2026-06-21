@@ -22,31 +22,25 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Playlist extends Model
 {
-
     protected $perPage = 20;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = ['nombre_playlist', 'id_usuario', 'privacidad_playlist', 'fecha_playlist'];
+    protected $fillable = [
+        'nombre_playlist',
+        'id_usuario',
+        'privacidad_playlist',
+    ];
 
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
     public function user()
     {
         return $this->belongsTo(\App\Models\User::class, 'id_usuario', 'id');
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function playlistCanciones()
     {
-        return $this->hasMany(\App\Models\PlaylistCancione::class, 'id_playlist', 'id_playlist');
+        return $this->hasMany(
+            \App\Models\PlaylistCancione::class,
+            'id_playlist',
+            'id'
+        );
     }
-
 }

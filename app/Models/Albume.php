@@ -47,7 +47,7 @@ class Albume extends Model
      */
     public function canciones()
     {
-        return $this->hasMany(\App\Models\Cancione::class, 'id', 'id_album');
+        return $this->hasMany(Cancione::class, 'id_album', 'id');
     }
     
 }

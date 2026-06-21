@@ -25,7 +25,8 @@ class StoreAlbumeRequest extends FormRequest
             'nombre_album' => 'required|string',
             'descripcion_album' => 'nullable|string',
             'portada_album' => 'nullable|string',
-            'id_artista' => 'required|integer',
+            'id_artista' => 'required|integer|exists:artistas,id',
         ];
+        
     }
 }

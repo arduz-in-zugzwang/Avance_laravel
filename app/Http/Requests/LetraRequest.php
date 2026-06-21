@@ -22,7 +22,9 @@ class LetraRequest extends FormRequest
     public function rules(): array
     {
         return [
-			'id_cancion' => 'required',
+			'id_cancion' => 'required|integer|exists:canciones,id',
+            'texto_fonetico' => 'nullable|string',
+             'letra_cancion' => 'required|string',
         ];
     }
 }

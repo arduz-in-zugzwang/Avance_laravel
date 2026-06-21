@@ -22,8 +22,8 @@ class SiguenRequest extends FormRequest
     public function rules(): array
     {
         return [
-			'id_seguidor' => 'required',
-			'id_seguido' => 'required',
+			'id_seguidor' => 'required|integer|exists:users,id',
+			'id_seguido' => 'required|integer|exists:users,id',
         ];
     }
 }
