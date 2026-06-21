@@ -9,6 +9,8 @@ use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\AlbumeResource;
+use App\Http\Requests\StoreAlbumeRequest;
+use App\Http\Requests\UpdateAlbumeRequest;
 
 class AlbumeController extends Controller
 {
@@ -25,7 +27,7 @@ class AlbumeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(AlbumeRequest $request): JsonResponse
+    public function store(StoreAlbumeRequest $request): JsonResponse
     {
         $albume = Albume::create($request->validated());
 
@@ -43,8 +45,7 @@ class AlbumeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(AlbumeRequest $request, Albume $albume): JsonResponse
-    {
+    public function update(UpdateAlbumeRequest $request, Albume $albume): JsonResponse    {
         $albume->update($request->validated());
 
         return response()->json(new AlbumeResource($albume));
