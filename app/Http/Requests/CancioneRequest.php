@@ -22,7 +22,7 @@ class CancioneRequest extends FormRequest
     public function rules(): array
     {
         return [
-    'id_album' => 'required|integer|exists:albunes,id',
+    'id_album' => 'required|integer|exists:albumes,id',
     'id_artista' => 'required|integer|exists:artistas,id',
     'nombre_cancion' => 'required|string',
     'portada_cancion' => 'nullable|string',
