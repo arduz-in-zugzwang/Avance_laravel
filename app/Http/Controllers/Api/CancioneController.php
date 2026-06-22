@@ -17,9 +17,9 @@ class CancioneController extends Controller
      */
     public function index(Request $request)
     {
-        $canciones = Cancione::paginate();
+        $canciones = Cancione::with('artista')->paginate();
 
-        return CancioneResource::collection($canciones);
+         return CancioneResource::collection($canciones);
     }
 
     /**
