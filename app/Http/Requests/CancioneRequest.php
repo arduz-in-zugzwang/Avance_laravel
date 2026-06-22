@@ -26,6 +26,9 @@ class CancioneRequest extends FormRequest
     'id_artista' => 'required|integer|exists:artistas,id',
     'nombre_cancion' => 'required|string',
     'portada_cancion' => 'nullable|string',
+    
+    'audio' => 'required|file|mimes:mp3,wav,mpeg',
+
     'path_link' => 'nullable|string',
 ];
     }

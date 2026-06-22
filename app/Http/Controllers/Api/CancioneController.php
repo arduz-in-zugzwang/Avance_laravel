@@ -27,9 +27,27 @@ class CancioneController extends Controller
      */
     public function store(CancioneRequest $request): JsonResponse
     {
-        $cancione = Cancione::create($request->validated());
+        $datos = $request->validated();
 
-        return response()->json(new CancioneResource($cancione));
+    if ($request->hasFile('audio')) {
+
+        $archivo = $request->file('audio');
+
+        $nombreArchivo = time() . '_' . $archivo->getClientOriginalName();
+
+        $archivo->move(
+            public_path('music'),
+            $nombreArchivo
+        );
+
+        $datos['path_link'] = 'music/' . $nombreArchivo;
+    }
+
+    $cancione = Cancione::create($datos);
+
+    return response()->json(
+        new CancioneResource($cancione)
+    );
     }
 
     /**
