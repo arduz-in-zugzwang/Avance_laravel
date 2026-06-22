@@ -59,4 +59,18 @@ class CancionTagController extends Controller
 
         return response()->noContent();
     }
+
+        // para concetar canciones con el tag
+
+    public function cancionesPorTag($idTag)
+{
+    $canciones = CancionTag::where('id_tag', $idTag)
+        ->with('cancione')
+        ->get()
+        ->pluck('cancione');
+
+    return response()->json([
+        'data' => $canciones
+    ]);
+}
 }

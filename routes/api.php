@@ -39,3 +39,4 @@ Route::apiResource('playlist-canciones', PlaylistCancioneController::class);
 Route::apiResource('siguens', SiguenController::class);
 
 Route::post('login', [UserController::class, 'login']);
+Route::get('tags/{id}/canciones', [CancionTagController::class, 'cancionesPorTag']);
