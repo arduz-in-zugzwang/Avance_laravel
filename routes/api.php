@@ -40,3 +40,4 @@ Route::apiResource('siguens', SiguenController::class);
 
 Route::post('login', [UserController::class, 'login']);
 Route::get('tags/{id}/canciones', [CancionTagController::class, 'cancionesPorTag']);
+Route::get( 'users/{id}/playlists',[PlaylistController::class, 'playlistsPorUsuario']);

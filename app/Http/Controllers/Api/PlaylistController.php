@@ -59,4 +59,13 @@ class PlaylistController extends Controller
 
         return response()->noContent();
     }
+    public function playlistsPorUsuario($idUsuario)
+{
+    $playlists = Playlist::where('id_usuario', $idUsuario)
+        ->get();
+
+    return response()->json([
+        'data' => $playlists
+    ]);
+}
 }
