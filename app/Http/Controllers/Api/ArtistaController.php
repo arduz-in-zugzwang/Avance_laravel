@@ -17,8 +17,7 @@ class ArtistaController extends Controller
      */
     public function index(Request $request)
     {
-        $artistas = Artista::paginate();
-
+        $artistas = Artista::with('user')->paginate();
         return ArtistaResource::collection($artistas);
     }
 

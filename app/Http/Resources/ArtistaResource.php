@@ -13,7 +13,14 @@ class ArtistaResource extends JsonResource
      * @return array<string, mixed>
      */
     public function toArray(Request $request): array
-    {
-        return parent::toArray($request);
-    }
+{
+    return [
+        'id' => $this->id,
+        'id_usuario' => $this->id_usuario,
+        'nombre_artistico' => $this->nombre_artistico,
+        'pfp' => $this->user?->pfp,
+        'created_at' => $this->created_at,
+        'updated_at' => $this->updated_at,
+    ];
+}
 }
